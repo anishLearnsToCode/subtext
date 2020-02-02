@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class GroupService {
 
-  currentlySelected = 'maths';
+  currentlySelected = 'physics';
   constructor() { }
 }

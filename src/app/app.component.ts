@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {GroupService} from './services/group.service';
 import {ChatService} from './services/chat.service';
+import {UserService} from "./services/user.service";
+import {MarkdownParserService} from "./services/markdown-parser.service";
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,34 @@ import {ChatService} from './services/chat.service';
 })
 export class AppComponent {
   title = 'subtext';
+  message: string;
 
   constructor(private readonly groupService: GroupService,
-              private readonly chatService: ChatService) {
+              private readonly chatService: ChatService,
+              private readonly userService: UserService,
+              private readonly markdownParserService: MarkdownParserService) {
   }
 
   private updateSelectedGroup(groupName: string) {
     this.groupService.currentlySelected = groupName;
+  }
+
+  isLatexMessage(): boolean {
+    return this.groupService.currentlySelected === 'maths' || this.groupService.currentlySelected === 'physics';
+  }
+
+  isMarkdownMessage(): boolean {
+    return this.groupService.currentlySelected === 'cs';
+  }
+
+  getMarkdownMessage(): string {
+    return MarkdownParserService.parse(this.message);
+  }
+
+  sendMessage() {
+    this.chatService.sendNewMessage(this.message, this.groupService.currentlySelected);
+    // console.log(this.chatService.getMessagesFor(this.groupService.currentlySelected)[0].sender === this.userService.currentUser().name);
+    // console.log(this.chatService.getMessagesFor(this.groupService.currentlySelected)[0].sender);
+    // console.log(this.userService.currentUser().name);
   }
 }

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {MessageComponent} from './message/message.component';
+import {KatexModule} from "ng-katex";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -10,7 +12,9 @@ import {MessageComponent} from './message/message.component';
         MessageComponent,
     ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    KatexModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

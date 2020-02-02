@@ -25,16 +25,21 @@
     <div id="messagesPane">
       <div id="messagesContainer">
         <app-message *ngFor="let message of chatService.getMessagesFor(groupService.currentlySelected)"
-                     [sender]="message.sender" [timestamp]="message.timestamp">
+                     [sender]="message.sender" [timestamp]="message.timestamp"
+                     [ngStyle]="{'align-self': message.sender === userService.currentUser().name ? 'flex-end' : 'flex-start'}">
           <span *ngIf="message.messageType === 0" [innerHTML]="message.innerHtml"></span>
+          <ng-katex-paragraph *ngIf="message.messageType === 1" [paragraph]="message.utfContent"></ng-katex-paragraph>
         </app-message>
       </div>
       <div id="textInputsContainer">
         <div id="textareas">
-          <textarea placeholder="Enter Message Here"></textarea>
-          <div id="compiledTextMessage"><span></span></div>
+          <textarea placeholder="Enter Message Here" [(ngModel)]="message"></textarea>
+          <div id="compiledTextMessage">
+            <span *ngIf="isMarkdownMessage()" [innerHTML]="getMarkdownMessage()"></span>
+            <ng-katex-paragraph *ngIf="isLatexMessage()" [paragraph]="message"></ng-katex-paragraph>
+          </div>
         </div>
-        <button>SEND</button>
+        <button (click)="sendMessage()">SEND</button>
       </div>
     </div>
   </div>
