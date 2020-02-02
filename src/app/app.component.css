@@ -83,7 +83,7 @@ app-message {
 
 #textInputsContainer {
   display: grid;
-  grid-template-columns: 1fr 70px;
+  grid-template-columns: 1fr 80px;
 }
 #textInputsContainer > button {
   background-color: lightblue;
