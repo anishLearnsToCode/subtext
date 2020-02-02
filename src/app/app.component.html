@@ -1,6 +1,7 @@
 <div id="subtext">
   <div id="navbar">
     <span>Subtext</span>
+    <span id="currentUserTag"> ~ {{userService.currentUser().name}}</span>
   </div>
 
   <div id="appPlaceHolder">
@@ -30,6 +31,7 @@
           <span *ngIf="message.messageType === 0" [innerHTML]="message.innerHtml"></span>
           <ng-katex-paragraph *ngIf="message.messageType === 1" [paragraph]="message.utfContent"></ng-katex-paragraph>
         </app-message>
+        <span *ngIf="chatService.getMessagesFor(groupService.currentlySelected).length === 0" style="align-self: center">No Conversations here yet</span>
       </div>
       <div id="textInputsContainer">
         <div id="textareas">
