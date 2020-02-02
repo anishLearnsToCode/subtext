@@ -29,6 +29,7 @@ export class ChatService {
       case 'maths': return this.mathematicsMessages;
       case 'physics': return this.physicsGroupMessages;
       case 'cs': return this.csGroupMessages;
+      default: return [];
     }
   }
 
