@@ -37,8 +37,6 @@ export class AppComponent {
 
   sendMessage() {
     this.chatService.sendNewMessage(this.message, this.groupService.currentlySelected);
-    // console.log(this.chatService.getMessagesFor(this.groupService.currentlySelected)[0].sender === this.userService.currentUser().name);
-    // console.log(this.chatService.getMessagesFor(this.groupService.currentlySelected)[0].sender);
-    // console.log(this.userService.currentUser().name);
+    this.message = '';
   }
 }
