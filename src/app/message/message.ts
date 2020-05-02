@@ -1,6 +1,5 @@
 import {MessageType} from './message-type.enum';
 import {MarkdownParserService} from '../services/markdown-parser.service';
-import {LatexParserService} from '../services/latex-parser.service';
 
 export class Message {
   sender: string;

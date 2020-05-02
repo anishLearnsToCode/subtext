@@ -3,6 +3,7 @@ import {GroupService} from './services/group.service';
 import {ChatService} from './services/chat.service';
 import {UserService} from "./services/user.service";
 import {MarkdownParserService} from "./services/markdown-parser.service";
+import {ClipboardService} from "./services/clipboard.service";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import {MarkdownParserService} from "./services/markdown-parser.service";
 })
 export class AppComponent {
   title = 'subtext';
-  message: string;
+  message = '';
 
   constructor(private readonly groupService: GroupService,
               private readonly chatService: ChatService,
@@ -38,5 +39,9 @@ export class AppComponent {
   sendMessage() {
     this.chatService.sendNewMessage(this.message, this.groupService.currentlySelected);
     this.message = '';
+  }
+
+  copyMessageFromClipboard(): void {
+    this.message += ClipboardService.getMessage();
   }
 }

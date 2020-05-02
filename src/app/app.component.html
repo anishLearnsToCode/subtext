@@ -26,23 +26,29 @@
     <div id="messagesPane">
       <div id="messagesContainer">
         <app-message *ngFor="let message of chatService.getMessagesFor(groupService.currentlySelected)"
-                     [sender]="message.sender" [timestamp]="message.timestamp"
+                     [sender]="message.sender" [timestamp]="message.timestamp" [utf8Message]="message.utfContent"
                      [ngStyle]="{'align-self': message.sender === userService.currentUser().name ? 'flex-end' : 'flex-start'}">
           <span *ngIf="message.messageType === 0" [innerHTML]="message.innerHtml"></span>
           <ng-katex-paragraph *ngIf="message.messageType === 1" [paragraph]="message.utfContent"></ng-katex-paragraph>
         </app-message>
         <span *ngIf="chatService.getMessagesFor(groupService.currentlySelected).length === 0" style="align-self: center">No Conversations here yet</span>
       </div>
+
       <div id="textInputsContainer">
         <div id="textareas">
           <textarea placeholder="Enter Message Here" [(ngModel)]="message"></textarea>
           <div id="compiledTextMessage">
-            <span *ngIf="isMarkdownMessage()" [innerHTML]="getMarkdownMessage()"></span>
-            <ng-katex-paragraph *ngIf="isLatexMessage()" [paragraph]="message"></ng-katex-paragraph>
+            <div>
+              <span *ngIf="isMarkdownMessage()" [innerHTML]="getMarkdownMessage()"></span>
+              <ng-katex-paragraph *ngIf="isLatexMessage()" [paragraph]="message"></ng-katex-paragraph>
+            </div>
+
+            <i class="far fa-clipboard" style="font-size: 24px" (click)="copyMessageFromClipboard()"></i>
           </div>
         </div>
         <button (click)="sendMessage()">SEND</button>
       </div>
     </div>
+
   </div>
 </div>

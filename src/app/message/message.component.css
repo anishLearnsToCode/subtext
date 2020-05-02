@@ -16,3 +16,15 @@
   font-size: .6em;
   margin-bottom: 10px;
 }
+
+#messageBox > #content-container {
+  display: grid;
+  grid-template-columns: 1fr 10px;
+  grid-gap: 10px;
+  padding-right: 10px;
+}
+
+i:hover {
+  cursor: pointer;
+  color: darkviolet;
+}

@@ -103,5 +103,14 @@ app-message {
 }
 
 #compiledTextMessage {
-  /*background-color: lightgray;*/
+  display: grid;
+  grid-template-columns: 1fr 10px;
+  justify-items: center;
+  align-items: center;
+  padding-right: 20px;
+}
+
+#compiledTextMessage > i:hover {
+  cursor: pointer;
+  color: darkviolet;
 }

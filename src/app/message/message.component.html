@@ -1,5 +1,8 @@
 <div id="messageBox">
   <div id="sender">{{sender}}</div>
   <div id="timestamp">{{timestamp}}</div>
-  <ng-content></ng-content>
+  <div id="content-container">
+    <ng-content></ng-content>
+    <i style="font-size:20px" class="far fa-copy" (click)="copyToClipboard()"></i>
+  </div>
 </div>
