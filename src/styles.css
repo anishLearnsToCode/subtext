@@ -34,3 +34,7 @@ code {
   font-family: monospace;
   padding: 1px;
 }
+
+a {
+  cursor: pointer;
+}

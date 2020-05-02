@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ClipboardService {
 
-  private static message: string;
+  private static message = '';
 
   constructor() { }
 

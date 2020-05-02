@@ -6,23 +6,22 @@ import {MessageComponent} from './message/message.component';
 import {KatexModule} from "ng-katex";
 import {FormsModule} from "@angular/forms";
 import { LoginComponent } from './login-page/login/login.component';
-import {RoutesModule} from "../routes/routes.module";
-import {RouterModule, RouterOutlet} from "@angular/router";
-
+import {AppRoutingModule} from "./app-routing/app-routing.module";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         MessageComponent,
-        LoginComponent
+        LoginComponent,
+        DashboardComponent
     ],
   imports: [
     BrowserModule,
     KatexModule,
     FormsModule,
-    // RoutesModule,
-    // RouterModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
