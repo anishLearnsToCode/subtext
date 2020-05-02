@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Message} from '../message/message';
 import {MessageType} from '../message/message-type.enum';
 import {UserService} from "./user.service";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,9 @@ export class ChatService {
   private mathematicsMessages: Message[] = [];
   private physicsGroupMessages: Message[] = [];
   private csGroupMessages: Message[] = [];
+  private csMessages: Observable<Message[]>;
 
   constructor(private readonly userService: UserService) {
-    this.physicsGroupMessages.push(
-      new Message('piyush', 'physics', "$c = \\pm\\sqrt{a^2 + b^2}$", MessageType.LATEX),
-      new Message('piyush', 'physics', '$\\sum_{i=1}^nx_i$', MessageType.LATEX),
-      new Message('piyush', 'physics', '$x^2 + 5$', MessageType.LATEX),
-      new Message('piyush', 'physics', '$\\sum_{i=1}^n(x_i^2 - \\overline{x}^2)$', MessageType.LATEX),
-    );
   }
 
   getMessagesFor(groupName: string): Message[] {
