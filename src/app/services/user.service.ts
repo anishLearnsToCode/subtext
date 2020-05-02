@@ -28,4 +28,9 @@ export class UserService {
     this.userNames.add(name);
     this.user = user;
   }
+
+  logout(): void {
+    this.users.delete(this.user);
+    this.userNames.delete(this.user.name);
+  }
 }

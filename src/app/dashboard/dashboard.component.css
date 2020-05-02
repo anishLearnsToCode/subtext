@@ -10,13 +10,24 @@
 }
 
 #navbar {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   padding-left: 20px;
   box-shadow: 0 0 5px 0;
+  align-items: center;
 }
 #navbar>span {
   font-size: 2em;
+}
+
+#logout-button {
+  background-color: blueviolet;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+#logout-button:hover {
+  cursor: pointer;
 }
 
 #appPlaceHolder {

@@ -4,6 +4,7 @@ import {ChatService} from "../services/chat.service";
 import {UserService} from "../services/user.service";
 import {MarkdownParserService} from "../services/markdown-parser.service";
 import {ClipboardService} from "../services/clipboard.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,7 @@ export class DashboardComponent {
   constructor(private readonly groupService: GroupService,
               private readonly chatService: ChatService,
               private readonly userService: UserService,
-              private readonly markdownParserService: MarkdownParserService) {
+              private readonly router: Router) {
   }
 
   private updateSelectedGroup(groupName: string) {
@@ -43,5 +44,10 @@ export class DashboardComponent {
 
   copyMessageFromClipboard(): void {
     this.message += ClipboardService.getMessage();
+  }
+
+  logout(): void {
+    this.userService.logout();
+    this.router.navigate(['login']);
   }
 }
