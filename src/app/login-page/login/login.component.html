@@ -1,6 +1,6 @@
 <div id="container">
   <div id="login-box">
-    <div id="user-id-text">Enter Unique User ID</div>
+    <div id="user-id-text">Enter Unique User Name</div>
     <input type="text" [(ngModel)]="userName">
     <div *ngIf="userNameExists()" id="invalid-username">The username has already been taken</div>
     <div id="join-button" (click)="joinChatRoom()" *ngIf="!userNameExists()">Join Chat Room</div>
