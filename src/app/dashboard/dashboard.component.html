@@ -1,7 +1,7 @@
 <div id="subtext">
   <div id="navbar">
     <span>Subtext &nbsp;</span>
-    <span id="currentUserTag">~{{userService.currentUser().name}}</span>
+    <span id="currentUserTag">~{{userService.currentUser()}}</span>
     <div id="logout-button" (click)="logout()">Logout</div>
   </div>
 
@@ -28,7 +28,7 @@
       <div id="messagesContainer">
         <app-message *ngFor="let message of chatService.getMessagesFor(groupService.currentlySelected)"
                      [sender]="message.sender" [timestamp]="message.timestamp" [utf8Message]="message.utfContent"
-                     [ngStyle]="{'align-self': message.sender === userService.currentUser().name ? 'flex-end' : 'flex-start'}">
+                     [ngStyle]="{'align-self': message.sender === userService.currentUser() ? 'flex-end' : 'flex-start'}">
           <span *ngIf="message.messageType === 0" [innerHTML]="message.innerHtml"></span>
           <ng-katex-paragraph *ngIf="message.messageType === 1" [paragraph]="message.utfContent"></ng-katex-paragraph>
         </app-message>

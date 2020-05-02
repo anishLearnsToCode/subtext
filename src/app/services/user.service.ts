@@ -1,36 +1,53 @@
 import { Injectable } from '@angular/core';
 import {User} from "./user";
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private users: Set<User> = new Set<User>();
-  private userNames: Set<string> = new Set<string>();
-  private user;
+  private users = new Map<string, string>();
+  private users$;
+  private activeUser: string;
+  private activeUserKey: string;
 
-  constructor() {
-    this.user = new User('anish');
+  constructor(private readonly database: AngularFireDatabase) {
+    this.users$ = database.list('/user');
+    this.subscribeToChanges();
   }
 
-  public currentUser(): User {
-    return this.user;
+  subscribeToChanges(): void {
+    // this.users$.valueChanges().subscribe(users => {
+    //   this.userNames = new Set<string>(users);
+    //   console.log(this.userNames);
+    // });
+
+    this.users$.snapshotChanges().subscribe(users => {
+      users.map(user => {
+        console.log(user.payload.node_.value_);
+        console.log(user.key);
+        this.users.set(user.payload.node_.value_, user.key);
+      });
+      console.log(this.users);
+    });
+  }
+
+  public currentUser(): string {
+    return this.activeUser;
   }
 
   userNameExist(name: string): boolean {
-    return this.userNames.has(name);
+    return this.users.has(name);
   }
 
   addUser(name: string) {
-    const user = new User(name);
-    this.users.add(user);
-    this.userNames.add(name);
-    this.user = user;
+    this.users$.push(name);
+    this.activeUser = name;
   }
 
   logout(): void {
-    this.users.delete(this.user);
-    this.userNames.delete(this.user.name);
+    this.database.object('/user/' + this.users.get(this.activeUser)).remove();
+    this.users.delete(name);
   }
 }

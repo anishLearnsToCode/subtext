@@ -4,7 +4,7 @@ import {MarkdownParserService} from '../services/markdown-parser.service';
 export class Message {
   sender: string;
   group: string;
-  timestamp: Date;
+  timestamp: string;
   utfContent: string;
   innerHtml: string;
   messageType: MessageType;
@@ -12,7 +12,7 @@ export class Message {
   constructor(sender, group, utfContent, messageType: MessageType) {
     this.sender = sender;
     this.group = group;
-    this.timestamp = new Date();
+    this.timestamp = new Date().toString();
     this.utfContent = utfContent;
     this.innerHtml = this.getTranspiled(utfContent, messageType);
     this.messageType = messageType;

@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
 
   joinChatRoom() {
     this.userService.addUser(this.userName);
-    console.log(this.userName + ' added');
     this.router.navigate(['dashboard']);
   }
 }
