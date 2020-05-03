@@ -15,13 +15,13 @@ export class DashboardComponent {
   title = 'subtext';
   message = '';
 
-  constructor(private readonly groupService: GroupService,
-              private readonly chatService: ChatService,
-              private readonly userService: UserService,
-              private readonly router: Router) {
+  constructor(readonly groupService: GroupService,
+              readonly chatService: ChatService,
+              readonly userService: UserService,
+              readonly router: Router) {
   }
 
-  private updateSelectedGroup(groupName: string) {
+  updateSelectedGroup(groupName: string) {
     this.groupService.currentlySelected = groupName;
   }
 
