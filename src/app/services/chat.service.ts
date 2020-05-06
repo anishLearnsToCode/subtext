@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {Message} from '../message/message';
 import {MessageType} from '../message/message-type.enum';
 import {UserService} from "./user.service";
-import {Observable} from "rxjs";
 import {AngularFireDatabase} from 'angularfire2/database';
-import {discardPeriodicTasks} from "@angular/core/testing";
 
 @Injectable({
   providedIn: 'root'
