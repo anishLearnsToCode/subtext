@@ -110,3 +110,64 @@ Ordered List
     <code>let number = 10;</code>
 </pre>
 ````
+
+### LaTeX to HTML
+#### Displaying superscript
+```latex
+$x^2$
+```
+
+__Output__ <br>
+x<sup>2</sup>
+
+#### Using subscript
+```latex
+$x_{y}$
+```
+
+__Output__ <br>
+x <sub>y</sub>
+
+#### Some Allowed Math Mode Symbols
+| Symbol | Output |
+|-------:|:------:|
+| `\leq` | &leq; |
+| `\times` | &times; |
+| `\geq` | &geq; |
+| `\neq` | &ne; |
+| `\approx` | &approx; |
+| `\div` | &div; |
+| `\pm` | &pm; |
+| `\cdot` | . |
+| `^{\circ}` | <sup>&cir;</sup> |
+| `\prime` | `|
+| `\primecdots` | ... |
+| `\infty` | &infin; |
+| `\neg` | &not; |
+| `\wedge` | &and; |
+| `\vee` | &or; |
+| `\supset` | &sup; |
+| `\forall` | &forall; |
+| `\in` | &in; |
+| `\rightarrow` | &rightarrow; |
+| `\leftarrow` | &leftarrow; |
+| `\subset` | &subset; |
+| `\exists` | &exist; |
+| `\notin` | &notin; |
+| `\Rightarrow` | &Rightarrow; |
+| `\cup` | &cup; |
+| `\cap` | &cap; |
+| `\mid` | &mid; |
+| `\Leftrightarrow` | &Leftrightarrow; |
+| `\dot a` | &dot;a |
+| `\hat a` | ^ a |
+| `\bar a` | a&#8407; |
+| `\tilde a` | a&#8407; |
+| `\alpha` | &alpha; |
+| `\beta` | &beta; |
+| `\gamma` | &gamma; |
+| `\delta` | &delta; |
+| `\epsilon` | &epsilon; |
+| `\zeta` | &zeta; |
+| `\eta` | &eta; |
+| `\varepsilon` | &varepsilon; |
