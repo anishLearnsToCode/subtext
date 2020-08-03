@@ -1,4 +1,4 @@
-@import '~katex/dist/katex.css';
+@import '~katex/dist/katex.min.css';
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 * {
@@ -28,13 +28,21 @@ p {
 }
 
 code {
-  background-color: white;
-  border: .2px solid black;
-  border-radius: 2px;
+  /*background-color: white;*/
+  /*border: .2px solid black;*/
+  /*border-radius: 2px;*/
   font-family: monospace;
   padding: 1px;
 }
 
 a {
   cursor: pointer;
+}
+
+blockquote {
+  /*background-color: lightblue;*/
+  color: black;
+  margin: 0;
+  padding: 0 0 0 5px;
+  font-style: italic;
 }

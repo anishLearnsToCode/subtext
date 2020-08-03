@@ -45,9 +45,55 @@ npm i
 ng serve
 ````
 
-Open on [your browser](localhost:4200)
+Open on [your browser @ port:4200](localhost:4200)
 
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## External Dependencies 
+This application relies on 2 very important parsers, namely to convert from `LaTeX` to `html` and `markdown` to `html`.
+Both parsers can be seen below:
+
+- [LaTeX to HTML Parser](https://github.com/anishLearnsToCode/latex-to-html-parser)
+- [Markdown to HTML Parser](https://github.com/anishLearnsToCode/md-to-html-parser)
+
+## Examples
+### Markdown to HTML
+#### Strike Through
+```markdown
+this is markdown for representing text in ~strikethrough~
+``` 
+
+```html
+this is markdown for representing text in <strike>strikethrough</strike>
+```
+
+#### Ordered Lists
+```markdown
+Ordered List
+1. point 1
+1. point 2
+1. point 3
+```
+
+```html
+<p>Ordered List</p>
+<ol>
+    <li>point 1</li>
+    <li>point 2</li>
+    <li>point 3</li>
+</ol>
+```
+
+#### Code
+```markdown
+`let number = 10;`
+```
+
+````html
+<pre>
+    <code>let number = 10;</code>
+</pre>
+````
