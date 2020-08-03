@@ -52,6 +52,19 @@ Open on [your browser @ port:4200](localhost:4200)
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Deploying to Production
+These steps will only work for the author as they require authentication and should not be tried by external users.
+
+__1. Build the Production resources and bundle them under the `\dist` directory__
+```bash
+ng build --prod
+``` 
+
+__2. Deploy this to Firebase__
+```bash
+firebase deploy
+```
+
 ## External Dependencies 
 This application relies on 2 very important parsers, namely to convert from `LaTeX` to `html` and `markdown` to `html`.
 Both parsers can be seen below:
