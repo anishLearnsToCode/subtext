@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // @ts-ignore
-const showdown = require('showdown');
-const converter = new showdown.Converter();
+const parser = require('https://github.com/anishLearnsToCode/md-to-html-parser');
+const converter = new parser.Converter();
 converter.setOption('parseImgDimensions', true);
 converter.setOption('simplifiedAutoLink', true);
 converter.setOption('strikethrough', true);
