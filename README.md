@@ -37,17 +37,6 @@ Everything including a UTF-8 text message which will be communicated through tha
 - Polls (Optimistic)
 - Lists (Optimistic)
 
-## Running the App
-````shell script
-git clone https://github.com/anishLearnsToCode/subtext-client.git 
-cd subtext
-npm i
-ng serve
-````
-
-Open on [your browser @ port:4200](localhost:4200)
-
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
