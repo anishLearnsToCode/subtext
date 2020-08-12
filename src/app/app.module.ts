@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {MessageComponent} from './message/message.component';
-import {LatexParser} from "https://github.com/anishLearnsToCode/latex-to-html-parser";
-import {MarkdownParser} from "https://github.com/anishLearnsToCode/md-to-html-parser";
+import {KatexModule} from "ng-katex";
 import {FormsModule} from "@angular/forms";
 import { LoginComponent } from './login-page/login/login.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
@@ -24,8 +23,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database'
     ],
   imports: [
     BrowserModule,
-    LatexParser,
-    MarkdownParser,
+    KatexModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),

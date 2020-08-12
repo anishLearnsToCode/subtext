@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {LatexParser} from 'https://github.com/anishLearnsToCode/latex-to-html-parser';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +6,5 @@ import {LatexParser} from 'https://github.com/anishLearnsToCode/latex-to-html-pa
 export class LatexParserService {
 
   constructor(private readonly latexParserService) {
-    this.latexParserService = LatexParser.getParser();
   }
 }

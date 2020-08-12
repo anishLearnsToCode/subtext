@@ -30,7 +30,7 @@
                      [sender]="message.sender" [timestamp]="message.timestamp" [utf8Message]="message.utfContent"
                      [ngStyle]="{'align-self': message.sender === userService.currentUser() ? 'flex-end' : 'flex-start'}">
           <span *ngIf="message.messageType === 0" [innerHTML]="message.innerHtml"></span>
-          <latex-paragraph *ngIf="message.messageType === 1" [paragraph]="message.utfContent"></latex-paragraph>
+          <ng-katex-paragraph *ngIf="message.messageType === 1" [paragraph]="message.utfContent"></ng-katex-paragraph>
         </app-message>
         <span *ngIf="chatService.getMessagesFor(groupService.currentlySelected).length === 0" style="align-self: center">No Conversations here yet</span>
       </div>
@@ -41,7 +41,7 @@
           <div id="compiledTextMessage">
             <div>
               <span *ngIf="isMarkdownMessage()" [innerHTML]="getMarkdownMessage()"></span>
-              <latex-paragraph *ngIf="isLatexMessage()" [paragraph]="message"></latex-paragraph>
+              <ng-katex-paragraph *ngIf="isLatexMessage()" [paragraph]="message"></ng-katex-paragraph>
             </div>
 
             <i class="far fa-clipboard" style="font-size: 24px" (click)="copyMessageFromClipboard()"></i>
